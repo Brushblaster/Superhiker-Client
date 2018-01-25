@@ -3,17 +3,46 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.css'
-
+import { store } from './store'
 import App from './App'
 import router from './router'
+import VueSocketio from 'vue-socket.io'
 
-Vue.use(Vuetify)
+Vue.use(Vuetify, {
+  theme: {
+    primary: '#004D40',
+    secondary: '#1DE9B6',
+    accent: '#FF7043',
+    error: '#F44336',
+    warning: '#ffeb3b',
+    info: '#2196F3',
+    success: '#00C853'
+  }
+})
 Vue.config.productionTip = false
+
+Vue.use(VueSocketio, '#/')
+console.log(process.env.BASE_URL)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
-  components: { App }
+  components: { App },
+
+  beforeMount: () => {
+    let expiresAt = JSON.parse(localStorage.getItem('expires_at'))
+    let isAuthValid = (new Date().getTime() < (expiresAt))
+    if (isAuthValid) {
+      store.commit('isAuthenticated', {
+        auth: true
+      })
+    } else {
+      store.commit('isAuthenticated', {
+        auth: false
+      })
+    }
+  }
 })

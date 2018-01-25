@@ -8,7 +8,7 @@ test/unit/coverage
 test/e2e/reports
 selenium-debug.log
 package.lock.json
-
+src/utils/auth0config.js
 
 
 # Editor directories and files
