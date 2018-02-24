@@ -29,7 +29,7 @@
     <v-toolbar fixed app class="primary">
       <v-toolbar-side-icon @click.stop="Sidebar = !Sidebar"></v-toolbar-side-icon>
       <v-toolbar-title>
-        <router-link to="/home" tag="span" style="cursor: pointer">Ticoa</router-link>
+        <router-link to="/home" tag="span" style="cursor: pointer">Gipfelstürmer</router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon @click.stop="login" v-show="!this.isAuthenticated">
@@ -91,7 +91,7 @@ export default {
       options: false,
       Sidebarlinks: [
         { icon: 'home', title: 'Home', path: '/home', disabled: this.isAuthenticated },
-        { icon: 'av_timer', title: 'Auto', path: '/auto', disabled: this.isAuthenticated },
+        { icon: 'replay', title: 'Auto', path: '/auto', disabled: this.isAuthenticated },
         { icon: 'web', title: 'Manual', path: '/manual', disabled: this.isAuthenticated }
       ],
       auth,

@@ -35,8 +35,7 @@ export default {
       ActiveTabbar: false,
       TabbarItems: [
         { title: 'Settings', icon: 'settings_ethernet', path: '/manual/settings' },
-        { title: 'Setup', icon: 'vertical_align_bottom', path: '/manual/setup' },
-        { title: 'Movement', icon: 'vertical_align_top', path: '/manual/movement' },
+        { title: 'Movement', icon: 'directions_transit', path: '/manual/movement' },
         { title: 'Light', icon: 'dashboard', path: '/manual/light' }
       ]
     }

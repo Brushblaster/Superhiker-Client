@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.css'
+import 'material-design-icons/iconfont/material-icons.css'
 import { store } from './store'
 import App from './App'
 import router from './router'
@@ -21,8 +22,14 @@ Vue.use(Vuetify, {
 })
 Vue.config.productionTip = false
 
+// production address = '#/'
+// Vue.use(VueSocketio, process.env.NODE_ENV !== 'production' ? 'http://localhost:3000' : '#/')
 Vue.use(VueSocketio, '#/')
-console.log(process.env.BASE_URL)
+
+// remove for production
+store.commit('isAuthenticated', {
+  auth: true
+})
 
 /* eslint-disable no-new */
 new Vue({
